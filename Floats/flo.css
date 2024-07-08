@@ -1,0 +1,39 @@
+body{
+    font-size: 2rem;
+}
+
+.block{
+    width: 30vw;
+    height: 30vw;
+    background: grey;
+    padding: 1rem;
+}
+
+.left{
+    float: left;
+    margin-right: 1rem;
+} 
+.right{
+    float: right;
+    margin-left: 1rem;
+}
+.clear{
+    clear: both;
+}
+section{
+    background: red;
+    border: 1px solid black;
+    display: flow-root;
+}
+
+img{
+    margin-top: 15px;
+    margin-left:20rem ;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    
+}  
+
+
+

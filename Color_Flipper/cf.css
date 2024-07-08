@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #dcdcdc;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    transition: 0.5s;
+}
+header{
+    display: flex;
+    justify-content: space-evenly;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0px 4px 3px rgb(201, 182, 182);
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+    background-color: #dcdcdc;
+}
+h2{
+    margin-top: 7px;
+}
+.h2-1{
+    color: rgb(81, 138, 138);
+}
+
+header div{
+    background-color: transparent;
+    display: flex;
+    gap: 1rem;
+
+}
+header div button{
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+}
+header div button:hover,
+header div button:focus{
+    color: rgb(81, 138, 138);
+}
+
+main{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+div{
+    min-height: 30px;
+    background-color: black;
+    font-size: 1.5rem;
+    color: white;
+    padding:  6px 10px;
+    border-radius: 4px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+button{
+    border: 1.5px solid black;
+    border-radius: 6px;
+    padding:  4px 10px;
+    background-color: transparent;
+
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+span{
+    color: rgb(83, 171, 171);
+}

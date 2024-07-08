@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Products</h1>
+    <a href="/products">ALL</a>
+    <a href="/products?category=fruit">Fruits</a>
+    <a href="/products?category=vegetable">Vegetables</a>
+    <a href="/products?category=dairy">Dairy</a>
+    <%for(let item of products){%>
+    <ul>
+        <li><a href="/products/<%=item._id%>"><%=item.name%></a></li>
+    </ul>
+   <%}%>
+
+   <a href="/products/new">Add Item</a>
+
+</body>
+</html>

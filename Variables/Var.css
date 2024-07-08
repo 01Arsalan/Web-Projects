@@ -1,0 +1,105 @@
+/* var(),url(): is a refrence function */
+
+
+/* Reset default padding, margin, and box sizing for all elements */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Define CSS variables */
+/* Global variables that can be used throughout the stylesheet */
+:root {
+    /* Colors */
+    --BGCOLOR: rgb(116, 139, 138);  /* Background color */
+    --ALT-BGCOLOR: rgb(7, 26, 43);  /* Alternative background color */
+    --RADIAL-COLOR: whitesmoke;     /* Radial gradient color */
+
+    /* Font */
+    --FS: 2rem;  /* Font size */
+
+    /* General */
+    --SHADOW: 0 6px 5px -5px var(--ALT-BGCOLOR);  /* Box shadow */
+    --BORDERS: 2px solid rgb(31, 4, 51);          /* Border styling */
+
+    /* Square */
+    --SQ-BG: papayawhip;              /* Square background color */
+    --SQ-SIZE: max(150px, 20vw);      /* Square size based on viewport width */
+}
+
+/* Responsive styling based on dark mode preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode color adjustments */
+        --BGCOLOR: rgb(3, 33, 31);
+        --ALT-BGCOLOR: rgb(7, 26, 43);
+        --RADIAL-COLOR: rgb(19, 59, 84);
+        --SQ-BG: rgb(64, 47, 20);
+    }
+}
+
+/* Set global styling for the body */
+body {
+    background-image: radial-gradient(var(--BGCOLOR), whitesmoke);
+    font-size: var(--FS);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Styling for header and footer */
+header, footer {
+    background-color: var(--ALT-BGCOLOR);  /* Set background color */
+    color: aliceblue;
+    text-align: center;
+    width: 100%;
+    position: sticky;  /* Stick header and footer at the top */
+    top: 0;
+}
+
+/* Styling for navigation */
+nav {
+    background: white;
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: var(--SHADOW);  /* Apply box shadow */
+}
+
+/* Styling for links */
+a {
+    color: black;  /* Set text color */
+}
+
+/* Styling for the main content area */
+main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;  /* Wrap content in rows */
+    gap: 5px;
+}
+
+/* Styling for the footer */
+footer {
+    bottom: 0;  /* Stick footer at the bottom */
+}
+
+/* Adding a class to redefine a variable */
+.square--highlight {
+    --SQ-BG: blue; /* Change square background color */
+}
+
+/* Styling for square elements */
+.square {
+    background: var(--SQ-BG);  /* Apply square background color */
+    width: var(--SQ-SIZE);     /* Set width using variable */
+    height: var(--SQ-SIZE);    /* Set height using variable */
+    border: var(--BORDERS);    /* Apply border styling */
+    border-radius: 15px;       /* Apply border radius */
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    box-shadow: var(--SHADOW);  /* Apply box shadow */
+}

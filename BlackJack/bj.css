@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(5, 60, 5);
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: goldenrod;
+    text-align: center;
+    margin-top: 6rem;
+}
+section{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+#message{
+    font-size: 2rem;
+    font-weight: 800;
+    text-shadow: 5px 3px 15px rgb(157, 106, 99);
+    color: black;
+}
+p{
+    font-size: 1.6rem;
+    color: coral;
+}
+
+.buttons{
+    display: flex;
+    flex-flow: row;
+    gap:1.5rem;
+    margin-top:1.4rem
+}
+button{
+    border: none;
+    border-radius: 3px;
+    width: 20%;
+    height: 1.8rem;
+    background-color: black;
+    color: aliceblue;
+    font-weight: bold;
+    transition: background-color 3s ease;
+}
+footer{
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}

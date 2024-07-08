@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(92, 125, 155);
+    display: flex;
+    flex-flow: column;
+}
+
+main {
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+img {
+    border-radius: 10px;
+}
+
+figure figcaption {
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+button {
+    width: fit-content;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(157, 16, 8);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 2.5rem;
+}
+
+p {
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(157, 16, 8);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 1rem;
+
+    width: fit-content;
+
+}
+
+section {
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: center;
+    position: relative;
+}
+
+div {
+    width: 400px;
+    height: 200px;
+
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+
+}

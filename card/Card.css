@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    border-sizing: border-box;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.nowrap{
+    white-space: nowrap;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: lightgray;
+    background-image: radial-gradient(rgb(33, 86, 81)
+    ,whitesmoke);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+header,nav{
+    position: sticky;
+    background-color: rgb(7, 26, 43);
+    text-align: center;
+    color: whitesmoke;
+}
+
+header{
+    top: 0;
+}
+
+nav{
+    background: whitesmoke;
+    font-weight: 800;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+nav a,
+nav a:visited{
+    color: black;
+}
+nav a:hover,
+nav a:focus{
+    color: hsla(0%, 0%, 20%, 0.6);
+}
+
+main{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1.5rem;
+    padding: 1rem;
+}
+
+footer{
+    bottom: 0;
+    text-align: center;
+}
+
+/* Card class */
+
+.card{
+    scroll-margin-top: 8rem;
+    width: min(100%,350px);
+    background-color: #cbd5e1;
+    border:2px solid black;
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card figure{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.card img{
+    border: 5px solid #333;
+    border-radius: 50%;
+}
+.card figcaption{
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 2rem;
+    text-align: center;
+}
+.card:target{
+    border: 2px solid purple ;
+}
+
+/* sizes */
+
+@media screen and (min-width: 576px){
+    main{
+        justify-content: center;
+        flex-flow: row wrap;
+        padding: 1rem;
+    }
+    .card{
+       width: min(100%,400px)
+    }
+    .card:last-child{
+        order: -1;
+    }
+}
+@media screen and (min-width: 768px){
+    body{
+        background-color: gold;
+        background-image: radial-gradient(whitesmoke,gold);
+    }
+}
+@media screen and (min-width: 768px){
+    nav{
+        display: none;
+    }
+    .card{
+        width: min(100%,325px)
+    } 
+    .card figure{
+        flex-flow: column reverse;
+    }
+    .card figcaption{
+        margin: 0.5em 0;
+    }
+    .card p{
+        margin-top: 1rem;
+    }
+}
+
+/* horizantal */
+
+@media screen and (min-width: 425px) and (min-aspect-ratio: 7/4){
+    nav{
+        display: none;
+    }
+    h1{
+        font-size: 1.5rem;   
+    }
+    main{
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: stretch;
+    }
+    .card{
+        width:min(calc(33%-0.25rem),200px)
+    }
+    .card figcaption,.card p{
+        font-size: 1.2rem;
+
+    }
+}

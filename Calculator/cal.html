@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cal.css">
+    <script src="index.js" defer></script>
+    <!-- defer to let DOM load  -->
+</head>
+<body>
+    
+    <main>
+
+            <section class="cal">
+                <div><span id="s1"></span> <span id="s2"></span></div>
+                <div>
+                    <button type="button" onclick="add()">Add</button>
+                    <button type="button" onclick="sub()">Subtract</button>
+                    <button type="button" onclick="div()">Divide</button>
+                </div>
+                <div>
+                    <button type="button" onclick="mul()">Multiply</button>
+                </div>
+            </section>
+
+        <section class="res">
+            <p>Result : <span id="result"></span></p>        
+        </section>
+    </main>
+
+    
+</body>
+</html>

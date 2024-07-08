@@ -1,0 +1,32 @@
+body{
+    background: rgb(6, 90, 69);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+span,p{
+    font-size: 2rem;
+    text-decoration: underline;
+}
+.cal{
+    display: flex;
+    flex-flow: column ;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+button{
+    background-color: aliceblue;
+    color: #000;
+    height: 30px;
+    width: fit-content;
+    border-radius: 5px;
+
+}
+
+.res{
+    display: flex;
+    flex-flow: column ;
+    align-items: center;
+
+}

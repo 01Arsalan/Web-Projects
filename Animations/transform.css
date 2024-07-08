@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+main{
+    flex-flow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+div{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    display: grid;
+    place-content: center;
+}
+
+div:first-child{
+    background: dodgerblue;
+    transform: translateX(-50%); /* moves the element itself (right +, left -) */
+    transform: rotate(30deg);
+    transform: scaleX(120%); /* resizes elemet(X,Y) */
+
+}
+div:nth-child(2){
+    background: yellow;
+    transform: translateY(-2rem); /* moves the element up or down */
+    transform: rotateY(60deg);
+}
+div:nth-child(3){
+    background: limegreen;
+    transform: translate(100%,-5rem);
+    transform: skewX(10deg);/* (X,Y-- can be used) */
+    
+    
+}

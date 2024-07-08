@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 2px;
+    height: 100vh;
+}
+
+header{
+    display: none ;
+}
+
+.pre-view{
+    display: flex;
+    position: fixed;
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+.pre-view img{
+    position: fixed;
+    height: 100px;
+    width: 100px;
+    top: 50%; 
+    left: 50%;
+    /* moves the element back by half of its width and half of its height */
+    transform: translate(-50%, -50%);
+}
+
+main{
+    min-width: max-content;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+video{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: -2;
+    object-fit: cover;
+}
+main::after{
+    content: "";
+    position: absolute;
+    background-color: rgba(8, 9, 9, 0.6);
+    color: aqua;
+    width: 100vw;
+    height: 100vh;
+    top: -1;
+    z-index: -1;
+}
+h1{
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.btn{
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+    padding: 5px 2px;
+    border-radius: 8px;
+    word-spacing: 3px;
+    background-color: gray;
+    border: none;
+}
+.start,.stop{
+    background: rgb(232, 234, 235);
+    padding: 5px 10px;
+    padding-left: 10px;
+    border-radius: 6px;
+}
+
+.view-start .start{
+    background-color: rgb(10, 152, 105);
+}
+.view-stop .stop{
+    background-color: rgb(10, 152, 105);
+}

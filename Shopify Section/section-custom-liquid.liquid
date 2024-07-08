@@ -1,0 +1,418 @@
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<div class="custom-section">
+    
+    {% assign collection_handle = 'best-sellers' %}
+    {% assign collection = collections[collection_handle] %}
+
+
+
+  <div class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img class="navbar-logo" style="width:50px" src="https://res.cloudinary.com/didlzqvsh/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/Tan_Black_Simple_Shoes_Store_Logo_1_di1vna.png" ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav links-group-1">
+          <a class="nav-link" href="#">Flats</a>
+          <a class="nav-link" href="#">Sneakers</a>
+          <a class="nav-link" href="#">Boots</a>
+        </div>
+        <div class="navbar-nav" style="margin-left: auto;">
+            <a class="nav-link links-logo" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="links-logo bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+          </svg></a>
+          <a class="nav-link links-logo" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="links-logo bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+          </svg></a>
+          <a class="nav-link links-logo" href="#" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="links-logo bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+          </svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="custom-body">
+    <div class="custom-body-sidebar">
+      <div class="sidebar-1">
+        <a href="#" class="sidebar-link">Alle Produkter</a>
+        <a href="#" class="sidebar-link">Aromadiffusere</a>
+        <a href="#" class="sidebar-link">Duftlys</a>
+        <a href="#" class="sidebar-link">Eteriske Oljeblandinger</a>
+        <a href="#" class="sidebar-link">Single Eteriske Oljer</a>
+        <a href="#" class="sidebar-link">Eteriske Oljesett</a>
+        <a href="#" class="sidebar-link">Eterisk Olje Mist</a>
+        <a href="#" class="sidebar-link">Bareoljer</a>
+      </div>
+      <div class="sidebar-2">
+        <a href="#" class="sidebar-link sidebar-2-link">Good For +</a>
+        <a href="#" class="sidebar-link sidebar-2-link">Scent +</a>
+        <a href="#" class="sidebar-link sidebar-2-link">Ingredients +</a>
+        <a href="#" class="sidebar-link sidebar-2-link">Note +</a>
+        <a href="#" class="sidebar-link sidebar-2-link">Sorter etter く</a>
+      </div>
+    </div>
+  
+
+    <div class="main-section">
+    
+      <div class="sort-option">
+        <h3 class="product-count" >Products : {{ collection.products_count }}</h3>
+        <div class="sort-container">
+          <label for="sort-by-price" class="sort-label">Sort by Price:</label>
+          <select id="sort-by-price" class="sort-select">
+            <option value="lowest">Lowest First</option>
+            <option value="highest">Highest First</option>
+          </select>
+        </div>
+      </div>
+    
+      <div class="products products-grid">
+        {% if collection %}
+          {% for product in collection.products %}
+            <div class="product product-tile" data-price="{{ product.price | money_without_currency }}">
+              {% if product.featured_image %}
+                  <img src="{{ product.featured_image | img_url: 'small' }}" alt="{{ product.title }}">
+              {% else %}
+                <p>No featured image</p>
+              {% endif %}
+              <div class="product-details">
+                <h3 class="title">{{ product.title }}</h3>
+                <p class="price"><span>{{ product.compare_at_price | money }}</span>  {{ product.price | money }}</p>
+                {% assign total_stock = 0 %}
+                {% for variant in product.variants %}
+                  {% assign total_stock = total_stock | plus: variant.inventory_quantity %}
+                {% endfor %}
+                {% if total_stock < 1 %}
+                  <button class="btn btn-primary" disabled>Out of Stock</button>
+                {% else %}
+                  <button class="btn btn-primary">Add to Cart</button>
+                {% endif %}
+              </div>
+              <p class="remaining">Stock: {{ total_stock }}</p>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p>No products found in this collection.</p>
+        {% endif %}
+      </div>
+      
+  </div>
+    
+</div>
+
+
+              
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sortByPriceSelect = document.getElementById('sort-by-price');
+    const productsGrid = document.querySelector('.products-grid');
+
+    sortByPriceSelect.addEventListener('change', function() {
+      const sortValue = this.value;
+      const productTiles = Array.from(productsGrid.querySelectorAll('.product-tile'));
+
+      productTiles.sort((a, b) => {
+        const priceA = parseFloat(a.getAttribute('data-price').replace(/,/g, ''));
+        const priceB = parseFloat(b.getAttribute('data-price').replace(/,/g, ''));
+
+        if (sortValue === 'lowest') {
+          return priceA - priceB;
+        } else {
+          return priceB - priceA;
+        }
+      });
+
+      productsGrid.innerHTML = '';
+      productTiles.forEach(productTile => {
+        productsGrid.appendChild(productTile);
+      });
+    });
+  });
+</script>
+
+
+
+<style>
+
+  .custom-section {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar{
+    backgrond:white;
+    border-bottom: 1px solid black;
+  }
+  .navbar-logo{
+    border-radius:50%;
+    margin-left:2rem;
+  }
+  .nav-link{
+    font-size:1.4rem;
+  }
+  .links-group-1{
+    margin-left:6rem;
+  }
+  .links-logo{
+    width:1.5rem;
+    margin-right:2rem;
+  }
+  .navbar-toggler{
+    margin-right:2rem;
+  }
+
+  @media (max-width:991px) {
+    .links-logo{
+        display: none;
+    }
+    .links-group-1{
+      margin:2rem 0 0 0;
+    }
+    .links-group-1 .nav-link{
+      border-top: .8px solid black;
+      padding:1rem 0 1rem 3rem;
+      
+    }
+  }
+  
+
+  .custom-body{
+    display:flex;
+  }
+  .custom-body-sidebar{
+    display:flex;
+    flex-flow:column;
+    border-right:1px solid black;
+    margin-left:20px;
+  }
+  .custom-body-sidebar .sidebar-1,
+  .custom-body-sidebar .sidebar-2{
+    font-size:1.5rem;
+    padding:2rem 3rem 2rem 0;
+    padding-:3rem;
+    display:flex;
+    flex-flow:column;
+    gap:1rem;
+  }
+  .custom-body-sidebar .sidebar-1{
+    border-bottom:1px solid black;
+  }
+  .sidebar-link{
+    text-decoration: none;
+    color:black;
+  }
+  .sidebar-link:hover{
+    color:gray;
+  }
+
+  @media (max-width:991px) {
+    .custom-body-sidebar{
+      display:none;
+    }
+  }
+
+
+.main-section{
+  display:flex;
+  flex-flow:column;
+  width:100%;
+}
+
+.product-count {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  align-self:center;
+}
+
+.sort-option{
+  display:flex;
+  aligin-items:center;
+  justify-content:center;
+  gap:5rem;
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.sort-label {
+  font-size: 16px;
+  color: #333;
+  margin-right: 10px;
+}
+
+.sort-select {
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.sort-select option {
+  padding: 5px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  justify-items: center;
+  height:80vh;
+  overflow:scroll;
+  
+}
+
+.product-tile {
+  position:relative;
+  width:25rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding-bottom: 5px;
+}
+
+.product-tile img {
+  width: 100%;
+  height: 25rem;
+}
+
+.product-details {
+  margin-top: 10px;
+  display:flex;
+  flex-flow:column;
+}
+
+.product-details .title {
+  margin: 0 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.product-details .price {
+  margin: 0 10px;
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+.product-details .price span {
+  margin: 0 10px 0 0;
+  font-size: 1.5rem;
+  color: #555;
+  text-decoration: line-through;
+}
+
+.product-details .btn {
+  width:100%;
+  margin-top: 10px;
+  align-self:center;
+  padding-top:1rem;
+  padding-bottom:1rem;
+  background:gray;
+}
+
+
+.remaining {
+  color:white;
+  background: red;
+  padding:5px;
+  width:fit-content;
+  border-radius:5px;
+  position:absolute;
+  top:0px;
+  left:0px;
+  margin:5px;
+}
+
+
+
+@media (max-width:1100px){
+  .product-count{
+    display:none;
+  }
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    max-width: 1100px;
+  }
+  .product-tile {
+    width:20rem;
+  }
+}
+@media (max-width:878px){
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .product-tile {
+    width:30rem;
+  }
+}
+@media (max-width:666px){
+  .product-tile {
+    width:25rem;
+  }
+}
+@media (max-width:535px){
+  .product-tile {
+    width:20rem;
+  }
+}
+@media (max-width:447px){
+  .products-grid {
+    gap: 10px;
+    padding: 10px;
+  }
+  .product-tile {
+    width:17rem;
+  }
+  .product-tile img {
+    height: 22rem;
+  }
+}
+@media (max-width:362px){
+  .products-grid {
+    gap:5px;
+    padding: 5px;
+  }
+  .product-tile {
+    width:14rem;
+  }
+  .product-tile img {
+    height: 20rem;
+  }
+}
+  
+</style>

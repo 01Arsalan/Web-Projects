@@ -1,0 +1,199 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {}
+
+header {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center
+}
+
+.logo {
+    padding-left: 4rem;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 4vw;
+    list-style: none;
+    padding-right: 8rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+}
+
+header button {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: none;
+    right: 30px;
+    top: 30px;
+}
+
+.icon,
+.icon::after,
+.icon::before {
+    background-color: rgb(255, 255, 255);
+    width: 40px;
+    height: 5px;
+    border-radius: 3px;
+    position: absolute;
+}
+
+.icon::after,
+.icon::before {
+    content: "";
+}
+
+.icon::after {
+    transform: translate(-20px, -12px);
+}
+
+.icon::before {
+    transform: translate(-20px, 12px);
+}
+
+
+#sec1 {
+    height: calc(100vh);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(63, 208, 212, 0.5), rgba(0, 0, 0, 0.7)),
+        url(./img/nature.jpg) center/cover no-repeat;
+}
+
+#sec1 h2 {
+    font-size: 9vh;
+    font-family: "Gill Sans";
+    font-weight: 600;
+    color: white;
+}
+
+#sec1 p {
+    font-size: 3vh;
+    padding: 1rem;
+    width: 60vw;
+    color: white;
+    text-align: center;
+}
+
+#sec1 button {
+    width: 15vw;
+    height: 40px;
+    background: transparent;
+    color: white;
+    font-size: 2vw;
+    border: 2px solid white;
+    margin-top: 1rem;
+}
+
+
+
+#sec2,
+#sec3,
+#sec4 {
+    height: 85vh;
+}
+
+#sec2 {
+    background: rgb(150, 218, 221);
+
+}
+
+#sec3 {
+    background: rgb(150, 221, 155);
+}
+
+#sec4 {
+    background: rgb(221, 150, 209);
+}
+
+#sec2 h2,
+#sec3 h2,
+#sec4 h2 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+h2 span {
+    color: rgb(97, 169, 232);
+}
+
+#footer {
+    height: 15vh;
+    background-color: rgb(2, 63, 104);
+    color: white;
+    display: grid;
+    place-items: center;
+}
+
+
+.to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 2vw;
+    border: none;
+    background: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width:700px) {
+    header {
+        flex-flow: column;
+        align-items: flex-start;
+        position: fixed;
+    }
+
+    .logo {
+        background: black;
+        width: 100%;
+    }
+
+    .nav-container {
+        width: 100%;
+        overflow: hidden;
+        display: none;
+    }
+
+    .show {
+        transform: translateY(0%);
+        display: flex;
+    }
+
+    nav {
+        flex-flow: column;
+        padding: 1rem 0rem 1rem 4rem;
+        background: black;
+        width: 100%;
+        transform: translateY(-100%);
+        transition: all 0.3s linear;
+    }
+
+    header button {
+        display: flex;
+    }
+}

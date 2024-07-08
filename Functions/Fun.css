@@ -1,0 +1,168 @@
+/* Reset default padding, margin, and box sizing for all elements */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Define CSS variables */
+/* Global variables that can be used throughout the stylesheet */
+:root {
+    /* Colors */
+    --BGCOLOR: rgb(116, 139, 138);  /* Background color */
+    --ALT-BGCOLOR: rgb(7, 26, 43);  /* Alternative background color */
+    --RADIAL-COLOR: whitesmoke;     /* Radial gradient color */
+
+    /* Font */
+    /* --FS: min(2.25rem,3vh); */
+    /* --FS: max(1.25rem,3vh); */
+    --FS: clamp(1.25rem, 3vh, 2.25rem); /* Responsive font size using clamp() */
+
+    /* General */
+    --SHADOW: 0 6px 5px -5px var(--ALT-BGCOLOR); /* Box shadow */
+    --BORDERS: 2px solid rgb(31, 4, 51); /* Border styling */
+
+    /* Square */
+    --SQ-BG: papayawhip; /* Square background color */
+    --SQ-SIZE:max(150px,20vw); /* Square size based on viewport width */
+}
+
+/* Responsive styling based on dark mode preference */
+@media (prefers-color-scheme: light) {
+    :root {
+        /* Dark mode color adjustments */
+        --BGCOLOR: rgb(3, 33, 31);
+        --ALT-BGCOLOR: rgb(7, 26, 43);
+        --RADIAL-COLOR: rgb(19, 59, 84);
+        --SQ-BG: rgb(64, 47, 20);
+    }
+}
+
+/* Set global styling for the body */
+body {
+    min-height: 100vh;
+    background-image: radial-gradient(var(--BGCOLOR), whitesmoke);
+    font-size: var(--FS);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styling for header, nav, and footer */
+header, nav, footer {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 100%;
+    background-color: var(--ALT-BGCOLOR);
+    color: aliceblue;
+    width: 100%;
+    position: sticky;
+    text-align: center;
+}
+
+/* Styling for header */
+header {
+    top: 0;
+}
+
+/* Styling for navigation */
+nav {
+    background: white;
+    text-align: center;
+    box-shadow: var(--SHADOW); /* Apply box shadow */
+    color: black;
+}
+
+/* Styling for the main content area */
+main {
+    flex-grow: 1;
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 300px));
+    gap: min(2vw, 20px);
+    font-size: var(--FS);
+}
+
+/* Styling for sections within main */
+main section {
+    flex-grow: 1;
+    padding: 0.5rem;
+}
+
+/* Styling for aside within main */
+main aside {
+    background-color: rgb(19, 19, 92);
+    color: var(--RADIAL-COLOR);
+    font-size: var(--FS);
+    font-style: italic;
+    padding: 0.5rem;
+    width: 40%;
+}
+
+/* Additional content styling */
+.content {
+    margin-top: 20px;
+}
+
+/* Styling for tooltips */
+.tooltip {
+    border-bottom: 1px dashed orange;
+    position: relative;
+}
+
+.tooltip:hover::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -20px;
+    white-space: nowrap;
+    background-color: cadetblue;
+}
+
+/* Styling for footer */
+footer {
+    bottom: 0;
+}
+
+/* Styling for links */
+a:any-link {
+    color: firebrick;
+}
+
+a:hover,
+a:focus {
+    filter: brightness(150%);
+    /* filter: hue-rotate(180deg); */
+}
+
+/* Redefining a variable */
+.square--highlight {
+    --SQ-BG: blue; /* Change square background color */
+}
+
+/* Styling for square elements */
+.square {
+    background: var(--SQ-BG);
+    /* width: var(--SQ-SIZE);
+    height: var(--SQ-SIZE); */
+    border: var(--BORDERS);
+    border-radius: 15px;
+    display: grid;
+    place-content: center;
+    font-size: 3rem;
+    box-shadow: var(--SHADOW);
+}
+
+/* Media query for larger screens */
+@media screen and (min-width: 576px) {
+    main {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    main section {
+        width: calc(7% - 5px);
+    }
+
+    main aside {
+        width: calc(30% - 5px);
+    }
+}

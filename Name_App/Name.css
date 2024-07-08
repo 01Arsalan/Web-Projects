@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(92, 125, 155);
+    display: flex;
+    flex-flow: column;
+}
+main{
+    display: flex;
+    flex-flow: column;
+    margin: 0 auto ;
+    margin-top: 2rem;
+    gap: 2rem;
+}
+
+button{
+    width: 15%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(157, 16, 8);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+p{
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 5px black;
+    background-color: rgb(157, 16, 8);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 1rem;
+    padding: 20px;
+    width:fit-content;
+    
+}
+section{
+    display: flex;
+    place-content: center;
+}

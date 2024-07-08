@@ -1,0 +1,38 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+ul{
+    list-style-type: none;
+    text-align: center;
+    background: gray;
+}
+
+body{
+    font-size: 2rem;
+}
+li{
+    display: inline-block;
+    margin-inline: 1rem;
+    padding: 2rem;
+}
+li a{
+    color: white;
+    text-decoration: none;
+}
+li a:hover,
+li a:focus{
+    text-decoration: underline;
+}
+
+img{
+    margin-top: 15px;
+    margin-left:20rem ;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    
+}

@@ -1,0 +1,12 @@
+{
+    "sections": {
+      "section-custom-liquid": {
+        "type": "section-custom-liquid",
+        "settings": {
+        }
+      }
+    },
+    "order": [
+      "section-custom-liquid"
+    ]
+  }

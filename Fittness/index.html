@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 class="title">FITNESS</h1>
+        <div class="links">
+            <a href="">Home</a>
+            <a href="">Nutrition</a>
+            <a href="">Blog</a>
+            <a href="" onclick="openModal(3,event)">Logout</a>
+        </div>
+    </nav>
+
+    <div class="top_img">
+        <img src="./img/fitness.jpeg" alt="Image">
+        <div class="btns">
+            <button type="button" id="btn" onclick="openModal(1,event)">SignUP</button>
+            <button type="button" id="btn" onclick="openModal(2,event)">Login</button>
+        </div>
+    </div>
+
+    <div class="article">
+        <img class="article_img article_img1" src="./img/img1.jpeg" alt="Image">
+        <p><span>Lorem ipsum dolor sit amet consectetur</span><br><br><br> est enim
+            provident, aperiam, porro cupiditate quo consectetur perferendis. Tempora sapiente enim a fugit debitis quod
+            nisi quis, mollitia aliquid assumenda nesciunt, totam autem repellendus rem voluptates provident adipisci
+            sit amet sint, fuga reprehenderit velit aut? A nostrum esse autem accusamus! Culpa nisi ipsum autem eaque
+            dolores, nesciunt nihil? Quae amet sed et perspiciatis, deserunt excepturi ipsa, corporis, rem pariatur sunt
+            corrupti quis suscipit sapiente error fugiat ipsam facere recusandae obcaecati maiores enim vitae beatae?
+            Labore dolore sit ab nobis fugit excepturi, nesciunt mollitia, maxime qui laborum rerum ratione, expedita
+            vero! Est necessitatibus qui, praesentium harum cumque corrupti. Cupiditate aliquid nulla non quasi maiores
+            ipsa tempore distinctio? Tempora facere minus impedit veritatis non, sint veniam ipsam quisquam. Eos quis
+            animi necessitatibus fugit, sed eligendi porro sapiente quo explicabo vitae aspernatur saepe. Tempore animi
+            alias, vel quibusdam blanditiis praesentium molestias laudantium totam rerum amet ea dignissimos sint
+            officia repellendus ipsum dolor non soluta sed. Assumenda aspernatur officiis suscipit repellat, eaque, in,
+            soluta facilis laudantium optio expedita nobis maiores et? Totam iure a sint magni culpa quia! Earum porro
+            eveniet fugit illum labore aperiam cum fuga voluptatibus. Commodi, aperiam?</p>
+    </div>
+    <div class="article">
+        
+        <p><span>Lorem ipsum dolor sit amet consectetur</span><br><br><br> adipisicing elit. Rerum odio fugiat voluptate
+            accusamus est enim
+            provident, aperiam, porro cupiditate quo consectetur perferendis. Tempora sapiente enim a fugit debitis quod
+            nisi quis, mollitia aliquid assumenda nesciunt, totam autem repellendus rem voluptates provident adipisci
+            sit amet sint, fuga reprehenderit velit aut? A nostrum esse autem accusamus! Culpa nisi ipsum autem eaque
+            dolores, nesciunt nihil? Quae amet sed et perspiciatis, deserunt excepturi ipsa, corporis, rem pariatur sunt
+            corrupti quis suscipit sapiente error fugiat ipsam facere recusandae obcaecati maiores enim vitae beatae?
+            Labore dolore sit ab nobis fugit excepturi, nesciunt mollitia, maxime qui laborum rerum ratione, expedita
+            vero! Est necessitatibus qui, praesentium harum cumque corrupti. Cupiditate aliquid nulla non quasi maiores
+            ipsa tempore distinctio? Tempora facere minus impedit veritatis non, sint veniam ipsam quisquam. Eos quis
+            animi necessitatibus fugit, sed eligendi porro sapiente quo explicabo vitae aspernatur saepe. Tempore animi
+            alias, vel quibusdam blanditiis praesentium molestias laudantium totam rerum amet ea dignissimos sint
+            officia repellendus ipsum dolor non soluta sed. Assumenda aspernatur officiis suscipit repellat, eaque, in,
+            soluta facilis laudantium optio expedita nobis maiores et? Totam iure a sint magni culpa quia! Earum porro
+            eveniet fugit illum labore aperiam cum fuga voluptatibus. Commodi, aperiam?</p>
+            <img class="article_img article_img2" src="./img/img2.avif" alt="Image">
+    </div>
+
+    <footer>
+        <p>Copyright&copy; 2022. All rights reserved.</p>
+    </footer>
+
+    <div class="screen" onclick="hideElement()"></div>
+
+    <div class="model">
+
+    </div>
+
+    <script>
+        function hideElement() {
+            document.querySelector('.screen').style.display = 'none';
+            document.querySelector('.model').style.display = 'none';
+        }
+        function openModal(choice, e) {
+            e.preventDefault()
+            document.querySelector('.screen').style.display = 'block';
+            if (choice == 1) {
+                document.querySelector('.model').innerHTML = `
+                <form>
+                    <label>Name :</label>
+                    <input type='text'>
+                    <label>Email :</label>
+                    <input type='email'>
+                    <label>OTP :</label>
+                    <input type='number' required>
+                    <label>Password :</label>
+                    <input type='password'>
+                    <button type="button" onclick="hideElement()">SignIn</button>
+                </form>
+                `
+                document.querySelector('.model').style.display = 'block';
+            } else if (choice == 2) {
+                document.querySelector('.model').innerHTML = `
+                <form>
+                    <label>Email :</label>
+                    <input type='email'>
+                    <label>Password :</label>
+                    <input type='password'>
+                    <button type="button" onclick="hideElement()">LogIn</button>
+                </form>
+                `
+                document.querySelector('.model').style.display = 'block';
+            } else {
+                document.querySelector('.model').innerHTML = ` 
+                <p class="alert">Do you want to LogOut?</p>
+                <button type="button" onclick="hideElement()" class="alert_btn">Yes</button>
+                <button type="button" onclick="hideElement()" class="alert_btn h">No</button>
+                `
+                document.querySelector('.model').style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

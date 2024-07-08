@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   
+   body{
+       background-color: rgb(255, 255, 255);
+   }
+   .main{
+       margin: 10rem;
+       margin-bottom: 2rem;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 4rem; 
+   }
+   
+   
+   .image,.info{
+       width: 34rem;
+       height: 24rem;
+   }
+   img{
+       width: 34rem;
+       height: 22rem;
+       box-shadow: 5px 5px 5px 0px;
+   }
+   
+   .title{
+       margin: 2rem 0rem .5rem 0rem;
+       font-size: 2rem;
+       text-transform: capitalize;
+       font-family: "Gill Sans";
+       font-weight: 600;
+       color: rgb(48, 99, 99);
+   }
+   .timeline{
+       color: black;
+       font-family: "Gill Sans";
+       font-size: 1.2rem;
+       font-weight: 600;
+   }
+   .discription{
+       font-family: "Helvetica";
+       font-weight: 600;
+       color: rgba(6, 6, 6, 0.335);
+       margin-top: 2rem;
+       margin-bottom: 2rem;
+   }
+   
+   
+   .buttons{
+       display: flex;
+       gap: 1rem;
+   }
+   .btn{
+       width: 5.5rem;
+       height: 6rem;
+       background: rgb(3, 41, 53);
+       display: flex;
+       flex-flow: column;
+       gap: 1rem;
+       justify-content: center;
+   }
+   .btn p{
+       color: rgba(255, 255, 255, 0.569);
+       text-align: center;
+       font-family: Helvetica;
+       
+   }
+   .btn .time{
+       font-size: 2rem;
+       color: rgb(255, 255, 255);
+   }
+   
+   .explode{
+       height: 3rem;
+   }
+   .result{
+       display: none;
+       font-size: 2rem;
+       font-family: Helvetica;
+       color: rgb(77, 16, 40);
+       text-align: center;
+   }

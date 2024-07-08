@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(252, 255, 252);
+    margin: 0;
+    padding: 10px;
+
+}
+main{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+}
+input{
+    height: 40px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+button{
+    background-color: rgb(84, 130, 15);
+    width: 15%;
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    color: aliceblue;
+    
+}
+ul{
+    padding: 0;
+   list-style: none;
+}
+li{
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+a{
+    color: black;   
+}
+a:hover,a:focus{
+    color: red;
+}

@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   
+   body{
+       background-color: aliceblue;
+   }
+   
+   .hdr{
+       display: flex;
+       flex-flow: column;
+       align-items: center;
+       justify-content: center;
+       margin-top: 5rem;
+       gap: 1rem;
+       font-family: "Gill Sans";
+   }
+   
+   
+   main{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 2rem;
+       margin-top: 3rem;
+   }
+   
+   .image{
+   
+       height: 18rem;
+       width: 28rem;
+   }
+   img{
+       width: 28rem;
+       height: 18rem;
+       border-radius: 10px;
+   }
+   
+   .tabs{
+       background-color: rgb(165, 186, 203);
+       min-height: 18rem;
+       width: 28rem;
+       max-height: max-content;
+       border-radius: 10px;
+   }
+   
+   .top ul{
+       display: flex;
+       justify-content: space-evenly;
+       background-color: rgb(40, 74, 104);
+       border: none;
+       border-radius: 10px 10px 0px 0px;
+   }
+   
+   li{
+       list-style: none;
+       padding: 1rem 3.1rem;
+       font-size: 1.180rem;
+       margin: 0;
+       border: none;
+       
+   }
+   .b1{
+       border-radius: 10px 0px 0px 0px;
+   }
+   .b3{
+       border-radius: 0px 10px 0px 0px;
+   }
+   .body{
+       margin: 1rem ;
+   } 
+   h2{
+       margin-bottom: 1rem;
+   }
+   
+   .clicked{
+       background-color: rgb(165, 186, 203);
+   }
+   
+   
+   @media screen and (max-width:950px) {
+       main{
+           flex-flow: column;
+       }
+       .tabs,.image,img{
+           width: 23rem
+       }
+       li{
+           padding: 1rem 2.270rem;
+       }
+       .hdr p{
+           text-align: center;
+       }
+   }

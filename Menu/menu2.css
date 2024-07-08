@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body{
+    background: black;
+    color: papayawhip;
+    text-align: center;
+    margin: 3rem;
+    line-height: 4rem;
+    font-size: 3rem;
+}
+
+a{
+ color: rgb(108, 127, 121);
+ display: block;
+}
+a:hover,
+a:focus{
+    background: grey;
+}
+
+
+li{
+    list-style-type: none;
+    border-top: 2px solid grey;
+    
+}
+nav{
+    border: 2px solid red;
+    border-radius: 2rem;
+}
+h1{
+    background-color: gold;
+    border-radius: 2rem 2rem 0 0;
+}
+li:last-child a{
+    border-radius: 0 0 2rem 2rem;
+}
+.exception:hover{
+    background: none;
+}
+img{
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    
+}
