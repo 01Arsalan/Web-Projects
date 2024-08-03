@@ -1,0 +1,276 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
+    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="section-{{ section.id }}-padding">
+    {{ section.settings.custom_liquid }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.custom-liquid.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "t:sections.custom-liquid.settings.custom_liquid.label",
+      "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom-liquid.presets.name"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
+
+<div class="varients-subscriptions">
+  <div class="purchase-type">
+    <button class="button one-time-purchase clicked">ONE TIME PURCHASE</button>
+    <button class="button subscribe-save">SUBSCRIBE & SAVE</button>
+  </div>
+  
+  <div class="varients">
+    {% assign product = all_products['seeds1'] %}
+    {% for variant in product.variants %}
+      {% assign discount = variant.price | minus: variant.compare_at_price %}
+      {% assign step_one = variant.compare_at_price |times: 100 |divided_by: variant.price %}
+      {% assign discount_percentage = 100 |minus: step_one %}
+
+      <div class="varient {% if forloop.first %} clicked{% endif %}">
+        <h3 class="name" style=" font-family: 'Migra'; font-weight: 800; color: #54585A; font-size: 25px;">{{ variant.title }} Jar</h3>
+        <p class="price" style="color: #FF0000; font-family: 'Apercu Mono Pro'; font-weight: bold; font-size: 14px; text-decoration: line-through;">{{ variant.price  | money }}</p>
+        {% if variant.compare_at_price %}
+          <p class="discounted-price" style="color: #54585A; font-family: 'Apercu Mono Pro';font-size: 16px; ">{{ variant.price | minus: discount | divided_by: variant.title | money }} Each</p>
+        {% endif %}
+        <p class="offer">Save {{  discount_percentage }}%</p>
+        
+        {% if forloop.index == 2 %}<p class="tag">Best Seller</p>{% endif %}
+        {% if forloop.index == 3 %}<p class="tag">Best Value</p>{% endif %}
+        
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="subscriptions" style="display:none;">
+    {% assign subscriptions = "1, 2, 6" | split: ", " %}
+    
+    <h2 style="display: block; font-size: 1.5rem;">Delivered Every:</h2>
+
+    <div class="types">
+      {% for type in subscriptions %}
+        <div class="type {% if forloop.first %} clicked{% endif %}">
+          <p class="duration" style=" font-family: 'Migra'; font-weight: 800; color: #54585A; font-size: 18px;">Delievery Every {{ type }}</p>
+          <p style=" font-family: 'Migra'; font-weight: 800; color: #54585A; font-size: 18px;">{% if forloop.first %} Month {% else %} Months {% endif %}</p>
+        </div>
+      {% endfor %}
+    </div>
+    
+  
+  </div>
+
+  <h2> CANCEL ANYTIME | FAST US DELIVERY </h2>
+  
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const oneTimePurchaseButton = document.querySelector(".one-time-purchase");
+    const subscribeSaveButton = document.querySelector(".subscribe-save");
+    const subscriptionsDiv = document.querySelector(".subscriptions");
+
+    function handlePurchaseTypeClick(event) {
+      oneTimePurchaseButton.classList.remove("clicked");
+      subscribeSaveButton.classList.remove("clicked");
+
+      event.target.classList.add("clicked");
+
+      if (subscribeSaveButton.classList.contains("clicked")) {
+        subscriptionsDiv.style.display = "block";
+      } else {
+        subscriptionsDiv.style.display = "none";
+      }
+    }
+
+    oneTimePurchaseButton.addEventListener("click", handlePurchaseTypeClick);
+    subscribeSaveButton.addEventListener("click", handlePurchaseTypeClick);
+
+    // Handle clicks on variant items
+    const varientItems = document.querySelectorAll(".varients .varient");
+    varientItems.forEach(item => {
+      item.addEventListener("click", function() {
+        varientItems.forEach(i => i.classList.remove("clicked"));
+        item.classList.add("clicked");
+      });
+    });
+
+    // Handle clicks on subscription types
+    const subscriptionTypes = document.querySelectorAll(".subscriptions .type");
+    subscriptionTypes.forEach(type => {
+      type.addEventListener("click", function() {
+        subscriptionTypes.forEach(t => t.classList.remove("clicked"));
+        type.classList.add("clicked");
+      });
+    });
+  });
+</script>
+
+
+
+<style>
+
+  p,h3{
+    margin:0;
+  }
+  
+  .varients-subscriptions{
+    display: flex;
+    flex-flow: column;
+    justify-content:center;
+    align-items:center;
+  }
+  .varients-subscriptions .purchase-type{
+    display: flex;
+    gap: 2rem;
+    border:none;
+  }
+  .purchase-type .button{
+    --border-opacity: none;
+    background: none;
+    border: 3px solid gray;
+    border-radius: 8px;
+    color: rgba(16, 16, 16, 0.805);
+    font-size: 1.8rem;
+    width:30.8rem;
+  }
+
+  .varients{
+    margin-top:2rem;
+    display: flex;
+    gap:1.8rem;
+  }
+  .varients .varient{
+    padding:1rem;
+    display:flex;
+    flex-flow:column;
+    width:20rem;
+    height:14rem;
+    border:2px solid gray;
+    border-radius: 8px;
+    justify-content:center; 
+    align-items:center;
+    position:relative;
+  }
+
+  .varients .varient .offer{
+    background: #C48A62;
+    border-radius: 4px;
+    position: absolute;
+    top: -12px;
+    left: 0;
+    margin: 0 2%;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: Apercu Mono Pro !important;
+    width: 96%;
+    text-align: center;
+    color: #fff;
+    padding: 4px;
+  }
+
+  .varients .varient .tag{
+    background: #485B6D;
+    border-radius: 4px;
+    position: absolute;
+    bottom: -12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: Apercu Mono Pro !important;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #fff;
+    padding: 4px 8px;
+    left: 26%;
+  }
+
+  .subscriptions{
+    margin-top:2rem;
+    display:flex;
+    flex-flow:column;
+    justify-content: flex-start;
+  }
+  .subscriptions .types{
+    display:flex;
+    gap:1.8rem;
+  }
+  .subscriptions .type{
+    display:flex;
+    flex-flow:column;
+    width:20rem;
+    border:2px solid gray;
+    border-radius: 8px;
+    align-items:center;
+    justify-content:center;
+    
+  }
+
+  .purchase-type .clicked,
+  .varients .clicked,
+  .subscriptions .clicked{
+    border:3px solid black;
+  }
+  
+
+  
+</style>
